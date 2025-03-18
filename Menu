@@ -38,24 +38,23 @@ local Window = Rayfield:CreateWindow({
 
 local PlayerTab = Window:CreateTab("GODMODE", "heart-pulse")
 
-local Toggle = PlayerTab:CreateToggle({
+local Button = PlayerTab:CreateButton({
    Name = "Trun ON",
-   CurrentValue = false,
-   Flag = "Toggle1", 
-   Callback = function(Value)
+   Callback = function()
        while true do
            task.wait()
-           local args = {
-               [1] = {
-                   [1] = {
-                       [1] = "\26",
-                       [2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
-                       [3] = 45
-                   }
-               }
-           }
-           game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-       end
+          local args = {
+    [1] = {
+        [1] = {
+            [1] = "\23",
+            [2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+            [3] = 45
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end
    end,
 })
 
