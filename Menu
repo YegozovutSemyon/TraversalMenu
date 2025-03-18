@@ -1,5 +1,4 @@
 --made by Semyon
---made by Semyon
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
@@ -175,7 +174,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 })
 local Label = PlayerTab:CreateLabel("IF U TRUN OFF SIGMA BOI AND THEY ARE FOLLOWING YOU, RIP, YOU'RE COOKED", "triangle-alert")
 local Label = PlayerTab:CreateLabel("_______________________________________________________________", "info")
-local Label = PlayerTab:CreateLabel("THAT OPTION MAKES U A FRIEND OF THE ENEMEYS MAYBE? THEY CAN'T HIT U, BUT THEY ALWAYS WILL BE FOLLOWING U, PLAY WITH ANOTHER PLAYER AND SHOW HIM UR SIGMA AURA, BOI", "info")
+local Label = PlayerTab:CreateLabel("THAT OPTION MAKES U A FRIEND OF THE ENEMYS MAYBE? THEY CAN'T HIT U, BUT THEY ALWAYS WILL BE FOLLOWING U, PLAY WITH ANOTHER PLAYER AND SHOW HIM UR SIGMA AURA, BOI", "info")
 
 local PlayerTab = Window:CreateTab("Credits", "square-code")
 
