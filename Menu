@@ -1,0 +1,145 @@
+--made by Semyon
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Traversal Menu",
+   Icon = 0, 
+   LoadingTitle = "Traversal Menu",
+   LoadingSubtitle = "Made by Semyon",
+   Theme = "Default", 
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, 
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, 
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, 
+      Invite = "noinvitelink", 
+      RememberJoins = true 
+   },
+
+   KeySystem = false, 
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", 
+      FileName = "Key", 
+      SaveKey = true, 
+      GrabKeyFromSite = false, 
+      Key = {"Hello"} 
+   }
+})
+
+local PlayerTab = Window:CreateTab("GODMODE", "heart-pulse")
+
+local Toggle = PlayerTab:CreateToggle({
+   Name = "Trun ON",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+       while true do
+           task.wait()
+           local args = {
+               [1] = {
+                   [1] = {
+                       [1] = "\26",
+                       [2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+                       [3] = 45
+                   }
+               }
+           }
+           game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+       end
+   end,
+})
+
+local PlayerTab = Window:CreateTab("WEAPONS", "swords")
+
+local Button = PlayerTab:CreateButton({
+   Name = "TELEPORT TO CHAINSAW",
+   Callback = function()
+       local teleportPosition = Vector3.new(-156, 3, 482)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "TELEPORT TO MACHETE",
+   Callback = function()
+       local teleportPosition = Vector3.new(-149, 3, 487)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "TELEPORT TO AXE",
+   Callback = function()
+       local teleportPosition = Vector3.new(-152, 3, 324)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "TELEPORT BACK",
+   Callback = function()
+       local teleportPosition = Vector3.new(141, 3, 221)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+   end,
+})
+
+local Label = PlayerTab:CreateLabel("MAKE SURE TO KNOW U WILL TP TO THE FIRST ROOM, SO U HAVE TO TP TO THE WEAPONS FROM THE FIRST ROOM", "message-square-warning")
+
+local PlayerTab = Window:CreateTab("Credits", "square-code")
+
+local Label = PlayerTab:CreateLabel("Semyon", "user-round-cog")
+local Label = PlayerTab:CreateLabel("Rayfield UI", "paint-roller")
