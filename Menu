@@ -58,6 +58,34 @@ end
    end,
 })
 
+local PlayerTab = Window:CreateTab("KILL ALL", "skull")
+
+local Button = PlayerTab:CreateButton({
+   Name = "KILL ALL ENEMIES",
+   Callback = function()
+     local enemiesFolder = workspace:WaitForChild("Enemies")
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\8",
+            [2] = false,
+            [3] = "Head", -- Target vital part for max damage
+            [4] = nil,   -- Placeholder for the specific enemy
+            [5] = math.huge -- Set damage to maximum
+        }
+    }
+}
+
+for _, enemy in pairs(enemiesFolder:GetChildren()) do
+    if enemy:IsA("Model") then
+        args[1][1][4] = enemy -- Assign enemy to the target
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end
+end
+
+   end,
+})
+
 local PlayerTab = Window:CreateTab("WEAPONS", "swords")
 
 local Button = PlayerTab:CreateButton({
@@ -173,8 +201,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
    end,
 })
 local Label = PlayerTab:CreateLabel("IF U TRUN OFF SIGMA BOI AND THEY ARE FOLLOWING YOU, RIP, YOU'RE COOKED", "triangle-alert")
-local Label = PlayerTab:CreateLabel("_______________________________________________________________", "info")
-local Label = PlayerTab:CreateLabel("THAT OPTION MAKES U A FRIEND OF THE ENEMYS MAYBE? THEY CAN'T HIT U, BUT THEY ALWAYS WILL BE FOLLOWING U, PLAY WITH ANOTHER PLAYER AND SHOW HIM UR SIGMA AURA, BOI", "info")
+local Paragraph = PlayerTab:CreateParagraph({Title = "", Content = ""})
+local Label = PlayerTab:CreateLabel("REMEMBER: IF U CLICKED RIGHT MOUSE U WILL LOSE THE AURA AND THEY WILL START HITTING U", "triangle-alert")
+local Paragraph = PlayerTab:CreateParagraph({Title = "", Content = ""})
+local Label = PlayerTab:CreateLabel("THAT OPTION MAKES U A FRIEND OF THE ENEMIES MAYBE? THEY CAN'T HIT U, BUT THEY ALWAYS WILL BE FOLLOWING U, PLAY WITH ANOTHER PLAYER AND SHOW HIM UR SIGMA AURA, BOI", "info")
 
 local PlayerTab = Window:CreateTab("Credits", "square-code")
 
