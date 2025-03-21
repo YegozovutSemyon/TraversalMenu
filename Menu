@@ -37,7 +37,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 local PlayerTab = Window:CreateTab("GODMODE", "heart-pulse")
-
+local Label = PlayerTab:CreateLabel("U HAVE TO REJOIN IF ONE OF THEM DIDN'T WORK", "triangle-alert")
 local Button = PlayerTab:CreateButton({
    Name = "Trun ON",
    Callback = function()
@@ -73,7 +73,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end
    end,
 })
-local Label = PlayerTab:CreateLabel("U HAVE TO REJOIN IF ONE OF THEM DIDN'T WORK", "triangle-alert")
+
 
 
 local PlayerTab = Window:CreateTab("KILL ALL", "skull")
