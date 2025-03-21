@@ -41,9 +41,7 @@ local PlayerTab = Window:CreateTab("GODMODE", "heart-pulse")
 local Button = PlayerTab:CreateButton({
    Name = "Trun ON",
    Callback = function()
-       while true do
-           task.wait()
-          local args = {
+   while true do task.wait() local args = {
     [1] = {
         [1] = {
             [1] = "\25",
@@ -63,25 +61,29 @@ local PlayerTab = Window:CreateTab("KILL ALL", "skull")
 local Button = PlayerTab:CreateButton({
    Name = "KILL ALL ENEMIES",
    Callback = function()
-     local enemiesFolder = workspace:WaitForChild("Enemies")
-local args = {
-    [1] = {
-        [1] = {
-            [1] = "\8",
-            [2] = false,
-            [3] = "Head", -- Target vital part for max damage
-            [4] = nil,   -- Placeholder for the specific enemy
-            [5] = math.huge -- Set damage to maximum
-        }
-    }
-}
+    local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteEvent = ReplicatedStorage:WaitForChild("RemoteEvent")
+local enemiesFolder = workspace:WaitForChild("Enemies")
+local localPlayer = Players.LocalPlayer
 
-for _, enemy in pairs(enemiesFolder:GetChildren()) do
+for _, enemy in ipairs(enemiesFolder:GetChildren()) do
     if enemy:IsA("Model") then
-        args[1][1][4] = enemy -- Assign enemy to the target
-        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+        local args = {
+            [1] = {
+                [1] = {
+                    [1] = "\8",
+                    [2] = false,
+                    [3] = "Left Arm",
+                    [4] = enemy,
+                    [5] = 200
+                }
+            }
+        }
+        RemoteEvent:FireServer(unpack(args))
     end
 end
+
 
    end,
 })
@@ -166,11 +168,157 @@ local Button = PlayerTab:CreateButton({
 
 local Label = PlayerTab:CreateLabel("MAKE SURE TO KNOW U WILL TP TO THE FIRST ROOM, SO U HAVE TO TP TO THE WEAPONS FROM THE FIRST ROOM", "message-square-warning")
 
+local PlayerTab = Window:CreateTab("CHECKPOINS", "map-pin")
+
+local Button = PlayerTab:CreateButton({
+   Name = "CP 1",
+   Callback = function()
+   local teleportPosition = Vector3.new(187, 3, 235)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "CP 2",
+   Callback = function()
+   local teleportPosition = Vector3.new(248, 24, 80)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "EXIT DOOR ( NEED CROWBAR )",
+   Callback = function()
+   local teleportPosition = Vector3.new(168, 3, 7)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "CP 4",
+   Callback = function()
+   local teleportPosition = Vector3.new(479, -3, -34)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "CP 5",
+   Callback = function()
+   local teleportPosition = Vector3.new(526, -3, -82)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "CP 6",
+   Callback = function()
+   local teleportPosition = Vector3.new(457, -14, -491)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "FINAL CHECKPOINT",
+   Callback = function()
+   local teleportPosition = Vector3.new(480, -28, -946)
+
+       local player = game:GetService("Players").LocalPlayer
+
+       local function teleportToPosition()
+           if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+               player.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+           else
+               warn("Failed to teleport: HumanoidRootPart not found!")
+           end
+       end
+
+       teleportToPosition()
+
+   end,
+})
+
+local Paragraph = PlayerTab:CreateParagraph({Title = "", Content = ""})
+local Label = PlayerTab:CreateLabel("WARNING, so ofc u have to know how the game works, so u can't tp to the final cp just like that, u will just tp to the void, cuz the map didn't load yet, so heres the idea, when u opened the first door, u can tp to the cp 1, when u opened the door of the cp 1, u can tp the cp 2, that's how it's works, good luck", "triangle-alert")
+
+
 local PlayerTab = Window:CreateTab("Sigma Boi AURA", "eye-off")
 local Button = PlayerTab:CreateButton({
    Name = "Trun ON THIS SIGMA AURA, BOI !",
    Callback = function()
-      local args = {
+     local args = {
     [1] = {
         [1] = {
             [1] = "\13",
@@ -180,6 +328,8 @@ local Button = PlayerTab:CreateButton({
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+
+
 
    end,
 })
@@ -197,6 +347,8 @@ local Button = PlayerTab:CreateButton({
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+
+
 
    end,
 })
