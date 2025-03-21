@@ -56,6 +56,24 @@ end
    end,
 })
 
+local Button = PlayerTab:CreateButton({
+   Name = "Trun ON ( IF THE FIRST ONE DIDN'T WORK )",
+   Callback = function()
+   while true do task.wait() local args = {
+    [1] = {
+        [1] = {
+            [1] = "\26",
+            [2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+            [3] = 45
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end
+   end,
+})
+
 local PlayerTab = Window:CreateTab("KILL ALL", "skull")
 
 local Button = PlayerTab:CreateButton({
@@ -73,6 +91,36 @@ for _, enemy in ipairs(enemiesFolder:GetChildren()) do
             [1] = {
                 [1] = {
                     [1] = "\8",
+                    [2] = false,
+                    [3] = "Left Arm",
+                    [4] = enemy,
+                    [5] = 200
+                }
+            }
+        }
+        RemoteEvent:FireServer(unpack(args))
+    end
+end
+
+
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "KILL ALL ENEMIES ( IF THE FIRST ONE DIDN'T WORK )",
+   Callback = function()
+    local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteEvent = ReplicatedStorage:WaitForChild("RemoteEvent")
+local enemiesFolder = workspace:WaitForChild("Enemies")
+local localPlayer = Players.LocalPlayer
+
+for _, enemy in ipairs(enemiesFolder:GetChildren()) do
+    if enemy:IsA("Model") then
+        local args = {
+            [1] = {
+                [1] = {
+                    [1] = "\t",
                     [2] = false,
                     [3] = "Left Arm",
                     [4] = enemy,
@@ -319,17 +367,36 @@ local PlayerTab = Window:CreateTab("Sigma Boi AURA", "eye-off")
 local Button = PlayerTab:CreateButton({
    Name = "Trun ON THIS SIGMA AURA, BOI !",
    Callback = function()
-     local args = {
-    [1] = {
-        [1] = {
-            [1] = "\13",
-            [2] = "True"
+     -- Get the remote event from ReplicatedStorage
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remoteEvent = ReplicatedStorage:WaitForChild("RemoteEvent")
+
+-- Iterate from 1 to 30
+for i = 1, 30 do
+    -- Convert the current number to its corresponding character
+    local codeChar = string.char(i)
+    
+    -- Build the args table with the structure required:
+    local args = {
+        {
+            { codeChar, "True" }
         }
     }
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-
+    
+    -- Fire the remote event inside a protected call
+    local success, err = pcall(function()
+        remoteEvent:FireServer(unpack(args))
+    end)
+    
+    if success then
+        print("Fired remote event with candidate number " .. i .. " (character: " .. codeChar .. ")")
+    else
+        warn("Candidate " .. i .. " failed with error: " .. tostring(err))
+    end
+    
+    -- Optionally, pause briefly between calls if needed:
+    wait(0.1)
+end
 
 
    end,
@@ -338,17 +405,36 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 local Button = PlayerTab:CreateButton({
    Name = "Trun OFF",
    Callback = function()
-      local args = {
-    [1] = {
-        [1] = {
-            [1] = "\13",
-            [2] = "False"
+     -- Get the remote event from ReplicatedStorage
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local remoteEvent = ReplicatedStorage:WaitForChild("RemoteEvent")
+
+-- Iterate from 1 to 30
+for i = 1, 30 do
+    -- Convert the current number to its corresponding character
+    local codeChar = string.char(i)
+    
+    -- Build the args table with the structure required:
+    local args = {
+        {
+            { codeChar, "False" }
         }
     }
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-
+    
+    -- Fire the remote event inside a protected call
+    local success, err = pcall(function()
+        remoteEvent:FireServer(unpack(args))
+    end)
+    
+    if success then
+        print("Fired remote event with candidate number " .. i .. " (character: " .. codeChar .. ")")
+    else
+        warn("Candidate " .. i .. " failed with error: " .. tostring(err))
+    end
+    
+    -- Optionally, pause briefly between calls if needed:
+    wait(0.1)
+end
 
 
    end,
