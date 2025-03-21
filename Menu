@@ -77,7 +77,7 @@ end
 
 
 local PlayerTab = Window:CreateTab("KILL ALL", "skull")
-
+local Label = PlayerTab:CreateLabel("PRESS THE SECOND ONE IF THE FIRST ON DIDN'T WORK", "triangle-alert")
 local Button = PlayerTab:CreateButton({
    Name = "KILL ALL ENEMIES",
    Callback = function()
@@ -109,7 +109,7 @@ end
 })
 
 local Button = PlayerTab:CreateButton({
-   Name = "KILL ALL ENEMIES ( IF THE FIRST ONE DIDN'T WORK )",
+   Name = "KILL ALL ENEMIES",
    Callback = function()
     local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
