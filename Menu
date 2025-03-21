@@ -312,7 +312,7 @@ local Button = PlayerTab:CreateButton({
 
 local Paragraph = PlayerTab:CreateParagraph({Title = "", Content = ""})
 local Label = PlayerTab:CreateLabel("WARNING, so ofc u have to know how the game works, so u can't tp to the final cp just like that, u will just tp to the void, cuz the map didn't load yet, so heres the idea, when u opened the first door, u can tp to the cp 1, when u opened the door of the cp 1, u can tp the cp 2, that's how it's works, good luck", "triangle-alert")
-
+local Paragraph = PlayerTab:CreateParagraph({Title = "", Content = ""})
 
 local PlayerTab = Window:CreateTab("Sigma Boi AURA", "eye-off")
 local Button = PlayerTab:CreateButton({
