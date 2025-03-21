@@ -46,7 +46,7 @@ local Button = PlayerTab:CreateButton({
         [1] = {
             [1] = "\25",
             [2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
-            [3] = 45
+            [3] = math.huge
         }
     }
 }
@@ -64,7 +64,7 @@ local Button = PlayerTab:CreateButton({
         [1] = {
             [1] = "\26",
             [2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
-            [3] = 45
+            [3] = math.huge
         }
     }
 }
