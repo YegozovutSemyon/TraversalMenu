@@ -74,7 +74,19 @@ end
    end,
 })
 
+local Button = PlayerTab:CreateButton({
+   Name = "RE JOIN (TELL ME IF IT'S NOT WORKING )",
+   Callback = function()
+   local ts = game:GetService("TeleportService")
 
+   local p = game:GetService("Players").LocalPlayer
+
+ 
+
+    ts:Teleport(game.PlaceId, p)
+
+   end,
+})
 
 local PlayerTab = Window:CreateTab("KILL ALL", "skull")
 local Label = PlayerTab:CreateLabel("PRESS THE SECOND ONE IF THE FIRST ON DIDN'T WORK", "triangle-alert")
